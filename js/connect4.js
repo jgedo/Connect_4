@@ -25,6 +25,7 @@ class Connect4 {
         // Players Colors
         this.p1Color = p1Color;
         this.p2Color = p2Color;
+        $(".loader").css("border-top", "10px solid " + this.p2Color);
         $("#turnText").css("color",this.p1Color);
 
         this.boardMap = [];
@@ -395,7 +396,24 @@ class Connect4 {
         // Get random column, if column is full get next available column
         //let col = Math.floor(Math.random()*connect4.COLS);
         //
-        let col = connect4.makeMovement();
+
+        $board.css("pointer-events","none");
+
+        $(".loader").css("display", "inline-block");
+
+        let col;
+        
+
+        // Wait for a second, simulating CPU is thinking its movement
+        let deciding = new Promise((resolve, reject) => {
+            col = connect4.makeMovement()
+            setTimeout(() => resolve("done!"), 1000)
+        });
+
+        await deciding;
+
+        console.log("after deciding");
+
         while (lastEmptyCell(col) == null) {
             if (col >= connect4.COLS) {
                 col = 0;
@@ -406,16 +424,8 @@ class Connect4 {
 
         const $lastEmptyCell = lastEmptyCell(col);
 
-        $board.css("pointer-events","none");
-
-        // Wait for a second, simulating CPU is thinking its movement
-        let deciding = new Promise((resolve, reject) => {
-            setTimeout(() => resolve("done!"), 1000)
-        });
-
-        await deciding;
-
         $board.css("pointer-events","all");
+        $(".loader").css("display", "none");
 
         $lastEmptyCell.removeClass('empty');
         connect4.boardMap[$lastEmptyCell.data('row')][$lastEmptyCell.data('col')] = connect4.playerTurn;
