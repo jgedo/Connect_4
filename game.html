@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <title>Connect 4</title>
+
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+        <script src="js/game.js"></script>
+        <script src="js/connect4.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div>
+                <img src="img/Title.png" alt="Cuatro en Raya" />    
+            <div>
+            <div>
+                <img src="img/Subtitle.png" alt="Connect 4 in Spanish!" />
+            </div>
+            <br><br>
+            <div id="connect4"></div>
+            <br><br>
+            <br><br>
+            <h2 id="turnText">Player One Turn</h2>
+            <br>
+            <button type="button" class="btn btn-primary btn-lg" id="btnRematch">Rematch</button>
+            <button type="button" class="btn btn-default btn-lg" id="btnMenu">Main Menu</button>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="winnerInfo">Modal Header</h2>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary" id="modalBtnRematch">Rematch</button> 
+                    <button type="button" class="btn btn-default" id="modalBtnMenu">Main Menu</button>
+                </div>
+            </div>
+      
+        </div>
+        
+    </body>
+</html>
